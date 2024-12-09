@@ -4,9 +4,9 @@
 using namespace std;
 
 int main() {
-    srand(time(0));   //Seed random number generator
+    srand(time(0)); 
     
-    int nilai[1200];
+    int num[1200];
     int i, j, n, temp;
 
     cout << setfill('=') << setw(60) << '=' << endl;
@@ -15,40 +15,41 @@ int main() {
     cout << setfill('=') << setw(60) << '=' << endl;
     cout << setfill(' ');
 
-    cout << "Masukkan jumlah angka yang ingin disorting:" << endl;
+    cout << "Enter the number of elements u want to (max 1200):" << endl;
     cin >> n;
     cout << setfill('-') << setw(60) << '-' << endl;
     cout << setfill(' ');
-    cout << "Angka akan digenerate random, sesuai jumlah yang kamu input" << endl;
+
+    cout << "Random numbers will be generated, based on the amount u input" << endl;
     for (i = 0; i <= n - 1; i++) {
-        nilai[i] = rand() % 1000;
+        num[i] = rand() % 1000;
     }
     for (i = 0; i <= n - 1; i++) {
-        cout << nilai[i] << ", ";
+        cout << num[i] << ", ";
     }
     cout << endl;
 
     cout << setfill('-') << setw(60) << '-' << endl;
     cout << setfill(' ');
 
-    cout << "Angka setelah diselection sort:" << endl;
+    cout << "num after selection sort:" << endl;
     for (i = 0; i <= n - 2; i++) {
-        int ij;
+        int minIndex;
 
-        ij = i;
+        minIndex = i;
         for (j = n - 1; j >= i + 1; j--) {
-            if (nilai[j] < nilai[ij]) {
-                ij = j;
+            if (num[j] < num[minIndex]) {
+                minIndex = j;
             }
         }
-        if (ij != i) {
-            temp = nilai[i];
-            nilai[i] = nilai[ij];
-            nilai[ij] = temp;
+        if (minIndex != i) {
+            temp = num[i];
+            num[i] = num[minIndex];
+            num[minIndex] = temp;
         }
     }
     for (i = 0; i <= n - 1; i++) {
-        cout << nilai[i] << ", ";
+        cout << num[i] << ", ";
     }
     return 0;
 }
