@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="bubblesort"/>
+        <attribute name="authors" value="USER"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-12-05 09:03:41 PM"/>
+        <attribute name="created" value="VVNFUjtERVNLVE9QLTM5MFRITFA7MjAyNC0xMi0wNTswNjoxOToxOCBQTTsyNjU1"/>
+        <attribute name="edited" value="VVNFUjtERVNLVE9QLTM5MFRITFA7MjAyNC0xMi0wNTswOTowMzo0MSBQTTs2OzI3NjA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nilai" type="Integer" array="True" size="100"/>
+            <declare name="i, j, n, temp" type="Integer" array="False" size=""/>
+            <output expression="&quot;Masukkan jumlah angka yang ingin disorting:&quot;" newline="True"/>
+            <input variable="n"/>
+            <output expression="&quot;Angka akan digenerate random, sesuai jumlah yang kamu input&quot;" newline="True"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <assign variable="nilai[i]" expression="random(9)"/>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <output expression="nilai[i]&amp; &quot; &quot;" newline="False"/>
+            </for>
+            <breakpoint expression="" always="True"/>
+            <output expression="&quot;Angka setelah diselection sort:&quot;" newline="True"/>
+            <for variable="i" start="0" end="n-2" direction="inc" step="1">
+                <declare name="ij" type="Integer" array="False" size=""/>
+                <assign variable="ij" expression="i"/>
+                <for variable="j" start="n-1" end="i+1" direction="dec" step="1">
+                    <if expression="nilai[j] &lt; nilai[ij]">
+                        <then>
+                            <assign variable="ij" expression="j"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <if expression="ij != i">
+                    <then>
+                        <assign variable="temp" expression="nilai[i]"/>
+                        <assign variable="nilai[i]" expression="nilai[ij]"/>
+                        <assign variable="nilai[ij]" expression="temp"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <output expression="nilai[i]&amp; &quot; &quot;" newline="False"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
